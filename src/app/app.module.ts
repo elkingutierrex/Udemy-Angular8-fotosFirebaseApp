@@ -7,6 +7,18 @@ import { CargaComponent } from './components/carga/carga.component';
 import { APP_ROUTES } from './app.routes';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 
+
+//services
+import { CargaImagenesService } from './services/carga-imagenes.service'
+import { from } from 'rxjs';
+
+//firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+import { environment } from 'src/environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,9 +28,14 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
   ],
   imports: [
     BrowserModule, 
-    APP_ROUTES
+    APP_ROUTES,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule, 
+    AngularFirestoreModule 
   ],
-  providers: [],
+  providers: [
+    CargaImagenesService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

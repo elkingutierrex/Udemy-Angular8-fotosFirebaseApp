@@ -13,5 +13,4 @@ export class FileItem {
         this.estaSubiendo = false;
         this.progreso = 0;
     }
-
 }
